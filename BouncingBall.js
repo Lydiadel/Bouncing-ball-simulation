@@ -9,7 +9,9 @@ function setup() {
 value = 2000;
 let state = 0;
 let firstAnimation = false;
-
+let iter = 0;
+let h = 40;
+let w = 40;
 function draw() {
   background(255, 255, 255);
   fill (value);
@@ -30,6 +32,26 @@ function draw() {
     Arr = concat(Arr1, Arr2);   
     
   }
+    
+   if (state > 2 ){
+    
+    //if Arr.length
+      if (iter < Arr.length/2){
+        h = h-2 ;
+        w = w-3;
+      }
+      if (iter > Arr.length/2 && iter < Arr.length-1) {
+        h = h+3;
+        w = w+3;
+      }
+      translate(Arr[iter][0], Arr[iter][1])
+      rotate(frameCount*PI/300)
+
+      ellipse(0,0, h, w);
+      if (iter < Arr.length-1){
+        iter++;
+      }
+    }
  
 } 
 
